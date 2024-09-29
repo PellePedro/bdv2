@@ -4,7 +4,6 @@ import { Book } from "../../adapter/assignment-2";
 import { ZodRouter } from "koa-zod-router";
 
 export default function books_list(router: ZodRouter) {
-
     router.register({
         name: "list books",
         method: "get",
@@ -18,6 +17,7 @@ export default function books_list(router: ZodRouter) {
             })
         },
         handler: async (ctx, next) => {
+            console.log("books_list called on backend");
             const { filters } = ctx.request.query;
 
             const query = filters?.length ? {
